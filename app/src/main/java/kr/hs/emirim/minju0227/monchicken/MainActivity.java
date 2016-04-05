@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.content.Intent;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener{
 
@@ -38,5 +39,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override // aanotation
     public void onClick(View v) {
         Toast.makeText(this, "hugry", Toast.LENGTH_LONG).show();
+
+        // 안드로이드 기능 호출
+        Intent intent = new Intent(this,ResultActivity.class);
+        startActivity(intent);
     }
 }
