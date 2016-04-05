@@ -28,7 +28,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     // 화면이 보여질 때마다 실행된다.
     protected void onResume() {
         super.onResume();
-        mName.setText("");
+        mName.setText(null);
     }
 
     /**
@@ -38,10 +38,30 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
      */
     @Override // aanotation
     public void onClick(View v) {
-        Toast.makeText(this, "hugry", Toast.LENGTH_LONG).show();
 
-        // 안드로이드 기능 호출
-        Intent intent = new Intent(this,ResultActivity.class);
-        startActivity(intent);
+        // 클릭시 값 가져오기
+        String name = mName.getText().toString();
+
+//        if(name==null) {
+//            // 클릭시 메세지 출력
+//            Toast.makeText(this, "이름을 입력해주세요.", Toast.LENGTH_LONG).show();
+//        }
+//        else {
+//            Toast.makeText(this, name + "씨, 배고파요ㅠㅠ", Toast.LENGTH_LONG).show();
+//            // 안드로이드 기능 호출
+//            Intent intent = new Intent(this,ResultActivity.class);
+//            startActivity(intent);
+//        }
+
+        try {
+            Toast.makeText(this, name + "씨, 배고파요ㅠㅠ", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this,ResultActivity.class);
+            startActivity(intent);
+        } catch (NullPointerException e) {
+            // name에 이름이 없을 경우(예외) '널 포인트 인셉션'이 발생하게 된다.
+            Toast.makeText(this, "씨, 배고파요ㅠㅠ", Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "뭔지 모르지만 잘 안되네요..", Toast.LENGTH_LONG).show();
+        }
     }
 }
