@@ -56,7 +56,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         try {
             Toast.makeText(this, name + "씨, 배고파요ㅠㅠ", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this,ResultActivity.class);
+
+            // name, age 를 넘어가게 함
+            intent.putExtra("name",name);
+            intent.putExtra("age",18);
             startActivity(intent);
+
         } catch (NullPointerException e) {
             // name에 이름이 없을 경우(예외) '널 포인트 인셉션'이 발생하게 된다.
             Toast.makeText(this, "씨, 배고파요ㅠㅠ", Toast.LENGTH_LONG).show();
