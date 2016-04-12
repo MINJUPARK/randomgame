@@ -29,6 +29,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
         mName.setText(null);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     /**
@@ -59,7 +60,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
             // name, age 를 넘어가게 함
             intent.putExtra("name",name);
-            intent.putExtra("age",18);
+            intent.putExtra("age", 18);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left); // 들어올 때, 나갈 때
         } catch (NullPointerException e) {
