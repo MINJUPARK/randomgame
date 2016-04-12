@@ -22,7 +22,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         mName = (EditText) findViewById(R.id.name);
         mButton = (Button) findViewById(R.id.btn_show_me_the_chicken);
-        mButton.setOnClickListener(this);
+        mButton.setOnClickListener(this); // onclick 메서드 자동 호출, 버튼 클릭 유무 검사 (이벤트 핸들러 클래스)
 
     }
     // 화면이 보여질 때마다 실행된다.
@@ -61,7 +61,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             intent.putExtra("name",name);
             intent.putExtra("age",18);
             startActivity(intent);
-
+            overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left); // 들어올 때, 나갈 때
         } catch (NullPointerException e) {
             // name에 이름이 없을 경우(예외) '널 포인트 인셉션'이 발생하게 된다.
             Toast.makeText(this, "씨, 배고파요ㅠㅠ", Toast.LENGTH_LONG).show();
