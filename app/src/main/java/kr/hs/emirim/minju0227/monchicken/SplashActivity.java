@@ -18,20 +18,18 @@ public class SplashActivity extends ActionBarActivity {
         setContentView(R.layout.activity_splash);
 
         Handler handler = new Handler();
-        boolean b = handler.postDelayed(new Runnable() {
+        handler.postDelayed(new Runnable() {
 
             @Override
             public void run() {
                 // 내가 사용하고 있는 문맥객체 반환
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(0,R.anim.zoom_exit);
 
                 // 현재 스플레쉬 액티비티를 소멸시킴
                 finish();
             }
         }, 3000);
-
     }
-
-
 }
